@@ -1,0 +1,118 @@
+.main-title {
+    font-size: 3.75rem;
+    font-weight: 700;
+    margin-block: 3rem;
+
+    @media (max-width: 991px) {
+        font-size: 2.5rem;
+    }
+}
+
+.hosts-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+
+    @media (max-width: 991px) {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.host-card {
+    background-color: $white;
+    box-shadow: 0 3px 6px rgba($black, 0.2);
+
+    padding: 1rem;
+    border-radius: 0.75rem;
+    transition: all 0.5s ease-in-out;
+
+    &:hover {
+        background-color: $primary;
+        transition: all 0.5s ease-in-out;
+
+        * {
+            color: $white !important;
+        }
+
+        .logo {
+            filter: brightness(0) invert(1);
+        }
+
+        .title .num {
+            color: $white;
+        }
+
+        .btn-primary {
+            background-color: $white;
+            color: $primary !important;
+
+            img {
+                @extend .primary-img;
+                opacity: 0.65;
+            }
+        }
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media (max-width: 991px) {
+            flex-direction: column;
+            gap: 1rem;
+        }
+    }
+
+    .logo {
+        &:not([width]) {
+            width: 150px;
+
+            @media (max-width: 991px) {
+                width: 100px !important;
+            }
+        }
+    }
+
+    .title {
+        font-weight: 700;
+        font-size: 1.75rem;
+
+        .num {
+            color: $primary;
+        }
+    }
+
+    .description {
+        margin-top: 2rem;
+        color: #777;
+    }
+
+    .btn-primary {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        width: fit-content;
+        margin-top: 1rem;
+
+        &:hover {
+            i {
+                animation: arrowAnimate 1s ease;
+            }
+
+            @keyframes arrowAnimate {
+                0% {
+                    transform: translateX(0);
+                }
+                50% {
+                    transform: translateX(20px);
+                }
+                100% {
+                    transform: translateX(0);
+                }
+            }
+        }
+    }
+}
